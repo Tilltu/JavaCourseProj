@@ -4,17 +4,21 @@ public class Poker {
     public enum PKCOLOR{
         Club,Diamond,Heart,Spade;
     }
-    int[] PKPoint;
-    String color;
+    public String color;
+    int status;
+    public String  point;
 
     public Poker(){
-        PKPoint = new int[13];
-        for(int i = 0;i < 13;i++){
-            PKPoint[i] = i + 1;
-        }
+        status = 1; // 1 is idle, 0 is occupied
+    }
+    public int getStatus(){
+        return this.status;
+    }
+    public void occupy() {
+        this.status = 0;
     }
 
-    public String getColor(int num){
+    public void setColor(int num){
         switch (num){
             case 0:{
                 color = PKCOLOR.Club.toString();
@@ -36,40 +40,42 @@ public class Poker {
                 break;
             }
         }
-        return color;
     }
 
-    public String getPoint(int num){
-        String  point;
+    public void setPoint(int num){
         switch (num){
-            case 1:{
+            case 0:{
                 point = "A";
                 break;
             }
-            case 10:{
+            case 9:{
                 point = "10";
                 break;
             }
-            case 11:{
+            case 10:{
                 point = "J";
                 break;
             }
-            case 12:{
+            case 11:{
                 point = "Q";
                 break;
             }
-            case 13:{
+            case 12:{
                 point = "K";
                 break;
             }
             default:{
-                char temp = (char) (num + '0');
+                char temp = (char) (num + '1');
                 point     = String.valueOf(temp);
+                break;
             }
         }
+    }
+    public String getColor(){
+        return color;
+    }
+    public String getPoint(){
         return point;
     }
-
-
-
 }
+
