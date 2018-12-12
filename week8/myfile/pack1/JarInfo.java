@@ -1,8 +1,5 @@
 package myfile.pack1;
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
-
 import  java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
